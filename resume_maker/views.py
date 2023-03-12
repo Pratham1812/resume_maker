@@ -172,7 +172,7 @@ def home(req):
             
             return FileResponse(open(r'resume_{}.zip'.format(name), 'rb'))
         except:
-            return HttpResponse("You must have selected those entries which do not exist on your linkedin profile, relaunch the app and enter the details properly")
+            return HttpResponse("Either You have selected those entries which do not exist on your linkedin profile or you dont have GoogleChrome installed on your machine, Update the entries or install google chrome before proceeding")
 
         # return HttpResponse("Everything worked")
     return render(req,"home.html")
