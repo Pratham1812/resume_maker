@@ -45,8 +45,9 @@ def home(req):
         exp_2 = ""
         exp_3 = ""
         exp_4 = ""
-        data = generate_data(linkedin_url)
+        
         try:
+            data = generate_data(linkedin_url)
             if(about_button=="on"):
                 about = data["About"]
             elif(bio_button=="on"):
@@ -172,7 +173,7 @@ def home(req):
             
             return FileResponse(open(r'resume_{}.zip'.format(name), 'rb'))
         except:
-            return HttpResponse("Either You have selected those entries which do not exist on your linkedin profile or you dont have GoogleChrome installed on your machine, Update the entries or install google chrome before proceeding")
+            return HttpResponse("Either You have selected those entries which do not exist on your linkedin profile or you dont have GoogleChrome installed on your machine, Update the entries or install google chrome before proceeding also let the new chrome window run for atleast a minute (depending on speed of internet connection) before closing the window.")
 
         # return HttpResponse("Everything worked")
     return render(req,"home.html")
