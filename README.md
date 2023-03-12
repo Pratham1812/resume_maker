@@ -28,10 +28,8 @@ python manage.py -runserver
 ```
 
 Navigate to http://127.0.0.1:8000/
-fill in the form with necessary details...
+fill in the form with necessary details... and wait for your download to start extract the zip file generated and here is your very own resume
 
-
-and VOILA
 
 
 
