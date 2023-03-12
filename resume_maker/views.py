@@ -9,7 +9,7 @@ from zipfile import ZipFile
 import sys
 from os import listdir
 
-def cleanup():
+def cleanup(): #fn to remove any new zip file which gets created
     test = os.listdir()
     for item in test:
         if item.endswith(".zip"):
@@ -45,9 +45,13 @@ def home(req):
         exp_2 = ""
         exp_3 = ""
         exp_4 = ""
-        
+
+        #declaring necessary empty variables to keep the content from POST request
+
+
         try:
-            data = generate_data(linkedin_url)
+            data = generate_data(linkedin_url)  #external fn in resume.py file which contains the fn which implements selenium and bs4
+        
             if(about_button=="on"):
                 about = data["About"]
             elif(bio_button=="on"):
@@ -142,7 +146,7 @@ def home(req):
             template = r"finallayout1.docx"
             template2 = r"finallayout.docx"
             template3 = r"exp2.docx"
-            document = MailMerge(template)
+            document = MailMerge(template)  #implementing mailmerge functionality of ms word to fill the given template
             document2 = MailMerge(template2)
             document3 = MailMerge(template3)
 
@@ -173,9 +177,9 @@ def home(req):
             
             return FileResponse(open(r'resume_{}.zip'.format(name), 'rb'))
         except:
-            return HttpResponse("Either You have selected those entries which do not exist on your linkedin profile or you dont have GoogleChrome installed on your machine, Update the entries or install google chrome before proceeding also let the new chrome window run for atleast a minute (depending on speed of internet connection) before closing the window.")
+            return HttpResponse("Either You have selected those entries which do not exist on your linkedin profile or you dont have GoogleChrome installed on your machine, Update the entries or install google chrome before proceeding")
 
-        # return HttpResponse("Everything worked")
+        
     return render(req,"home.html")
 
 
