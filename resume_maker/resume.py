@@ -15,7 +15,7 @@ def generate_data(url):
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()),options=options)
     driver.get('https://www.linkedin.com')
 
-    username = driver.find_element('id','session_key')
+    username = driver.find_element('id','session_key') # logging in using dummy account
     username.send_keys("officialap1812@gmail.com")
     time.sleep(0.5)
 
@@ -23,7 +23,7 @@ def generate_data(url):
     password.send_keys("pratham1812")
     time.sleep(0.5)
 
-    sign_in_button = driver.find_element('xpath','//*[@type="submit"]')
+    sign_in_button = driver.find_element('xpath','//*[@type="submit"]') #instructing selenium to find sign in button and clicking it
     sign_in_button.click()
     time.sleep(0.5)
 
@@ -39,7 +39,7 @@ def generate_data(url):
     initialScroll = 0
     finalScroll = 1000
 
-    while True:
+    while True:   #code to scroll down the web page inorder to ensure that all data gets loaded on the webpage
         driver.execute_script(f"window.scrollTo({initialScroll},{finalScroll})")
         # this command scrolls the window starting from
         # the pixel value stored in the initialScroll
@@ -48,16 +48,14 @@ def generate_data(url):
         initialScroll = finalScroll
         finalScroll += 1000
 
-        # we will stop the script for 3 seconds so that
+        # we will stop the script for 2 seconds so that
         # the data can load
-        time.sleep(3)
-        # You can change it as per your needs and internet speed
+        time.sleep(2)
+       
 
         end = time.time()
-
-        # We will scroll for 20 seconds.
-        # You can change it as per your needs and internet speed
-        if round(end - start) > 15:
+       
+        if round(end - start) > 7:
             break
 
 
@@ -66,12 +64,12 @@ def generate_data(url):
     soup = BeautifulSoup(src,"lxml")
 
 
-    about= soup.find("div",{"class":"text-body-medium"})
+    about= soup.find("div",{"class":"text-body-medium"})  #finding the bio section in profile
 
 
     lst = soup.find_all("ul",{"class":"pvs-list"})
 
-    ind = [j for j in range(len(lst)) if len(lst[j].find_all("li",{"class":"artdeco-list__item"})) != 0]
+    ind = [j for j in range(len(lst)) if len(lst[j].find_all("li",{"class":"artdeco-list__item"})) != 0]  #logic to implement accurate scraping of data
 
 
     heading = soup.find_all("h2",{"class":"pvs-header__title"})
@@ -83,7 +81,7 @@ def generate_data(url):
 
 
 
-    if("About" in reqd):
+    if("About" in reqd):  #implementing logic to ensure data retrieved points to correct category
         reqd.remove("About")
 
     if("Activity" in reqd):
@@ -97,11 +95,13 @@ def generate_data(url):
 
 
     s = []
+
+
     for k in ind:
         exp = lst[k].find_all("li",{"class":"artdeco-list__item"})
         
         res = []
-        # print(s)
+        
         for j in exp:
             
             x = j.find_all("span",{"class":"visually-hidden"})
@@ -112,9 +112,6 @@ def generate_data(url):
                     ls.append(k.get_text().strip())
                
 
-            #     print(k.get_text().strip())
-            # print("*****")
-            # print(ls)
             result = "\n".join(ls)
             res.append(result)
             
@@ -124,7 +121,7 @@ def generate_data(url):
 
 
 
-    final = dict(zip(reqd,s))
+    final = dict(zip(reqd,s))  #creating our object which contains relevant text for relevant category
     if(validate_data(about)):
         final["Bio"] = about.get_text().strip()
     else:
