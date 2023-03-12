@@ -6,14 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-{% comment %}   
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Rubik+Iso&display=swap" rel="stylesheet">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto+Mono&family=Rubik+Iso&display=swap" rel="stylesheet"> {% endcomment %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
@@ -52,9 +44,7 @@ font-weight: bold;
   <code>2.</code> Enter your details in the required sections or leave all the job to us as our software will search your <code>linkedin-profile</code> to autofill all the required information<br>
  <code>3.</code> Wait for some time while the <code>magic</code> happens in the background <br> 
  <code>4.</code> Download 3 designs of resume in <code>docx</code> format to edit your  resume any further if needed<br><br><br>
- <code><strong>Note -</strong></code> Before clicking the checkbox to retrieve required info from your <code>linkedin profile</code>. Please ensure that information field exists on your profile
-<br>Also we currently only support GoogleChrome as the browser,Please install it and run the app on chrome only
-
+ <code><strong>Note -</strong></code> Before clicking the checkbox to retrieve required info from your <code>linkedin profile</code>. Please ensure that information field exists on your profile<br>Also we currently only support GoogleChrome as the browser,Please install it and run the app on chrome only
 
 
 </p>
@@ -286,7 +276,7 @@ font-weight: bold;
      
   }
   function fireup_abt(){
-    if(document.getElementsByName("about")[0].checked == true){
+    if(document.getElementsByName("abt")[0].checked == true){
     document.getElementsByName("about")[0].setAttribute('readonly', true);
     document.getElementsByName("bio")[0].checked = false
     }else{
