@@ -6,6 +6,14 @@ The user is provided two options to choose from either he/she can enter the requ
 
 Clone the files into your computer and navigate to the installation directory
 
+![image](https://github.com/Pratham1812/resume_maker/assets/32198580/ae26ca3c-e163-4b85-9eb1-47fd78ca0bcd)
+![image](https://github.com/Pratham1812/resume_maker/assets/32198580/ed48bbf4-ef34-4eea-acad-7cd22c8665b9)
+![image](https://github.com/Pratham1812/resume_maker/assets/32198580/749e4e20-ab47-43f9-90f3-2b4dacccc6ef)
+![image](https://github.com/Pratham1812/resume_maker/assets/32198580/a1ae0912-0398-48ed-a56f-001dd282b590)
+
+
+
+
 Run 
 
 ```python
